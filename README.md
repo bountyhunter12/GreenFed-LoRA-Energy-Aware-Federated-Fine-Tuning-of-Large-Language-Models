@@ -38,7 +38,7 @@ order as the thesis chapters.
 
 - Six complaint categories (Credit Card, Mortgage, Debt Collection, Bank
   Account, Credit Reporting, Money Transfer) — each shown as a card with a
-  color, an emoji, and a real example sentence.
+  color, and a real example sentence.
 - Three summary stats: **60,000** total complaints, balanced across
   **50** clients, into **6** classes.
 - A bar chart of the **balanced class distribution** — every category ends
