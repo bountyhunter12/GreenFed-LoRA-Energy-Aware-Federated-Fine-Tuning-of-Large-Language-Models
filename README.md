@@ -1,6 +1,6 @@
 # GreenFed-LoRA — Research Dashboard
 
-A 7-page interactive dashboard for the master's thesis
+A 7-page interactive dashboard for the thesis
 **"GreenFed-LoRA: Energy-Aware Federated Fine-Tuning of LLMs"**.
 
 The dashboard summarizes a federated fine-tuning experiment in which several

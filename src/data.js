@@ -1,5 +1,5 @@
 // Centralized hard-coded data for the GreenFed-LoRA dashboard.
-// All numbers are real values from the master's thesis experiments.
+// All numbers are real values from the thesis experiments.
 
 export const CATEGORIES = [
   {
@@ -43,6 +43,7 @@ export const CATEGORIES = [
     color: 'border-purple-500',
     bg: 'bg-purple-50',
     text: 'text-purple-600',
+    emoji: '🟣',
     example: 'There’s an account on my report I never opened',
     short: 'Credit Rep.',
   },
@@ -51,6 +52,7 @@ export const CATEGORIES = [
     color: 'border-yellow-500',
     bg: 'bg-yellow-50',
     text: 'text-yellow-600',
+    emoji: '🟡',
     example: 'My wire transfer never arrived',
     short: 'Transfer',
   },

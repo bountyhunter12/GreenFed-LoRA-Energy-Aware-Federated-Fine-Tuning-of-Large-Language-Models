@@ -78,7 +78,7 @@ export default function App() {
       </main>
 
       <footer className="text-center text-xs text-gray-400 pb-6">
-        Master’s Thesis Dashboard · GreenFed-LoRA · {new Date().getFullYear()}
+        Thesis Dashboard · GreenFed-LoRA · {new Date().getFullYear()}
       </footer>
     </div>
   );

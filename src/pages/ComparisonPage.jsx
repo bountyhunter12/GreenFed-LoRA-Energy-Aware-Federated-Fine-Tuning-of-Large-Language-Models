@@ -81,7 +81,7 @@ const FILE_TREE = `/kaggle/working/
 ├── cfpb_val.csv
 ├── cfpb_test.csv
 ├── client_stats.csv
-└── results_optionC.csv               ← master results table (all models × strategies)`;
+└── results_optionC.csv               ← main results table (all models × strategies)`;
 
 function colorForCO2(co2, min, max) {
   // green (low) -> red (high)
@@ -146,6 +146,7 @@ function HeatmapGrid() {
 
 const FINDINGS = [
   {
+    emoji: '🟢',
     title: 'FLoRA achieves the lowest CO₂',
     body: 'Qwen2-0.5B with FLoRA produced only 63.05g CO₂ while maintaining competitive quality (composite 0.6941).',
   },
