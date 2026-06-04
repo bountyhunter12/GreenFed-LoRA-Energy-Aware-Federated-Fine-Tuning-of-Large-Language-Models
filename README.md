@@ -47,6 +47,8 @@ order as the thesis chapters.
 **What the result shows:** the dataset is small enough to be tractable on
 Kaggle GPUs, large enough to be meaningful, and the augmentation pipeline
 brings it to a perfectly balanced 10k-per-class split.
+### User Interface
+<img width="1284" height="891" alt="image" src="https://github.com/user-attachments/assets/f23b236b-37a6-452b-95e6-50b27e6d41ec" />
 
 ---
 
@@ -64,6 +66,8 @@ training set with structured outputs.
 **What the result shows:** the augmentation fixes the ~4.7× class skew in
 the CFPB dataset and forces the model into a consistent answer format that
 can be auto-evaluated.
+### User Interface
+<img width="1330" height="912" alt="image" src="https://github.com/user-attachments/assets/342bd569-9b62-498f-9f9f-a2faa99817fc" />
 
 ---
 
@@ -86,6 +90,15 @@ federated loop runs across. Has 4 sub-tabs.
 two ways — different data (Non-IID) and different hardware/energy
 footprints (carbon intensity varies ~6× from 100 to 670 g/kWh). That's the
 realistic condition FLoRA is designed for.
+
+### User Interface
+<img width="1639" height="898" alt="image" src="https://github.com/user-attachments/assets/36f3ad11-3ed5-43c1-8514-0a8bf7bf0367" />
+<img width="1636" height="842" alt="image" src="https://github.com/user-attachments/assets/d8d60182-0285-4ca5-b7ae-386dc203fcfe" />
+<img width="1722" height="644" alt="image" src="https://github.com/user-attachments/assets/9f15f264-4a6f-4d72-b313-66289c754c5a" />
+<img width="1673" height="772" alt="image" src="https://github.com/user-attachments/assets/169d4f8c-2b8b-4c71-985c-b0c42b4eda9b" />
+
+
+
 
 ---
 
