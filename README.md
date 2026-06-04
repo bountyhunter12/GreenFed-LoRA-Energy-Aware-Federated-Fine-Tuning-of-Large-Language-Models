@@ -123,6 +123,9 @@ realistic condition FLoRA is designed for.
 client-selection step is the key novelty — it picks clients with
 high entropy, high FLOPs, and a good battery/carbon ratio.
 
+### User Interface
+<img width="1108" height="908" alt="image" src="https://github.com/user-attachments/assets/5515d448-b45e-4309-a9fb-79fb7df60f8b" />
+
 ---
 
 ### 5. Model Results
@@ -145,6 +148,10 @@ high entropy, high FLOPs, and a good battery/carbon ratio.
   - Qwen2-0.5B → **FedAvg** (0.7029)
   - Qwen2-1.5B → **All** (0.7061)
   - Llama-3.2-1B → **FedAvg** (0.7304)
+
+### User Interface
+<img width="1444" height="900" alt="image" src="https://github.com/user-attachments/assets/acb32c1e-60c2-417e-bde3-2f8ce6dcf138" />
+
 
 ---
 
@@ -174,6 +181,9 @@ FLoRA wins on the smallest model (Qwen2-0.5B) and is roughly tied on
 Llama-3.2-1B; FedAvg wins on Qwen2-1.5B because FLoRA happened to select
 higher-carbon clients for that particular run.
 
+### User Interface
+<img width="1485" height="880" alt="image" src="https://github.com/user-attachments/assets/27e1ed24-2295-41c8-a684-dcafc9e3cc5b" />
+
 ---
 
 ### 7. Comparison
@@ -200,6 +210,11 @@ that the experiment runner produces on Kaggle
 - Int-8 compression saves ~50% bandwidth on every model.
 - Energy-aware client selection works — FLoRA clients average
   ~280 g/kWh vs ~410 g/kWh for the unselected pool.
+  
+### User Interface
+  <img width="1576" height="761" alt="image" src="https://github.com/user-attachments/assets/cc9e1298-1f82-4846-a172-a70b17f64482" />
+  <img width="1313" height="899" alt="image" src="https://github.com/user-attachments/assets/732e237e-b26b-486f-8cdd-0dbc92b377ae" />
+
 
 ---
 
