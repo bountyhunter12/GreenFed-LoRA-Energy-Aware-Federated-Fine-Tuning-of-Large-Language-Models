@@ -13,6 +13,7 @@ All numbers are hard-coded from the thesis experiments and live in
 [`src/data.js`](./src/data.js). The dashboard itself is a static React app —
 no backend, no API calls, no real federation happening at runtime.
 
+Demo - https://green-fed-lo-ra-energy-aware-federated-fine-tuning-hczv9e2yn.vercel.app/
 ---
 
 ## Quick start
