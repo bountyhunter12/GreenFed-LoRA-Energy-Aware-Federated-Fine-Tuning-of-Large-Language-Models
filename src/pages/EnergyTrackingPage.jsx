@@ -34,7 +34,7 @@ export default function EnergyTrackingPage() {
       />
 
       {/* Model selector */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
         {MODEL_KEYS.map((k) => (
           <ModelCard
             key={k}

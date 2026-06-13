@@ -124,7 +124,7 @@ export default function ModelResultsPage() {
       />
 
       {/* Model selector */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-6">
         {MODEL_KEYS.map((k) => (
           <ModelCard
             key={k}
@@ -194,7 +194,7 @@ export default function ModelResultsPage() {
             <LineChart data={convergence} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="round" tick={{ fontSize: 12, fill: '#6b7280' }} />
-              <YAxis domain={[0.55, 0.75]} tick={{ fontSize: 11, fill: '#6b7280' }} />
+              <YAxis tick={{ fontSize: 11, fill: '#6b7280' }} />
               <Tooltip
                 contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 6, fontSize: 12 }}
                 formatter={(v) => v.toFixed(4)}

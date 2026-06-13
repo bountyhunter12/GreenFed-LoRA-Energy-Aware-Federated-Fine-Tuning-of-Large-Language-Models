@@ -16,9 +16,12 @@ const STRAT_COLORS = {
 };
 
 const MODEL_SHORT = {
-  'Qwen2-0.5B': 'Q05',
-  'Qwen2-1.5B': 'Q15',
+  'Qwen2-0.5B':   'Q05',
+  'Qwen2-1.5B':   'Q15',
   'Llama-3.2-1B': 'L1B',
+  'Llama-3.2-3B': 'L3B',
+  'TinyLlama-1.1B': 'TL1',
+  'Gemma-2-2B':   'G2B',
 };
 
 // Build the 9 scatter points
@@ -146,13 +149,12 @@ function HeatmapGrid() {
 
 const FINDINGS = [
   {
-    emoji: '🟢',
     title: 'FLoRA achieves the lowest CO₂',
     body: 'Qwen2-0.5B with FLoRA produced only 63.05g CO₂ while maintaining competitive quality (composite 0.6941).',
   },
   {
     title: 'Llama-3.2-1B is the strongest performer',
-    body: 'FedAvg achieved composite 0.7304, the highest across all models and strategies.',
+    body: 'FedAvg achieved composite 0.7304, the highest across all non-collapsed models and strategies.',
   },
   {
     title: 'Int-8 compression saves ~50% bandwidth',
@@ -161,6 +163,14 @@ const FINDINGS = [
   {
     title: 'Energy-aware selection works',
     body: 'FLoRA consistently selects lower carbon-intensity clients (≈280 vs ≈410 g/kWh), validating the utility function design.',
+  },
+  {
+    title: 'Gemma-2-2B with QLoRA low rank collapsed',
+    body: 'Across all three strategies, the model produced degenerate output (composite 0.0146) while consuming 891.95g CO₂ — adapter rank is a load-bearing hyperparameter even with 4-bit quantization.',
+  },
+  {
+    title: 'TinyLlama punches above its weight',
+    body: 'At only 1.1B parameters and 234.83g CO₂ (FLoRA), TinyLlama-1.1B hit composite 0.6637 — the lowest carbon footprint of any 1B+ model on the board.',
   },
 ];
 
@@ -200,7 +210,6 @@ export default function ComparisonPage() {
                 type="number"
                 dataKey="y"
                 name="Composite"
-                domain={[0.6, 0.75]}
                 tick={{ fontSize: 11, fill: '#6b7280' }}
                 label={{ value: 'Composite Score', angle: -90, position: 'insideLeft', style: { fontSize: 12, fill: '#6b7280' } }}
               />
@@ -254,7 +263,7 @@ export default function ComparisonPage() {
             <BarChart data={groupedBar} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis dataKey="model" tick={{ fontSize: 11, fill: '#6b7280' }} />
-              <YAxis domain={[60, 75]} tick={{ fontSize: 11, fill: '#6b7280' }} />
+              <YAxis tick={{ fontSize: 11, fill: '#6b7280' }} />
               <Tooltip
                 contentStyle={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 6, fontSize: 12 }}
                 formatter={(v) => v.toFixed(2)}

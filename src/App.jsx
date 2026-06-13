@@ -6,6 +6,7 @@ import FederatedLoopPage from './pages/FederatedLoopPage.jsx';
 import ModelResultsPage from './pages/ModelResultsPage.jsx';
 import EnergyTrackingPage from './pages/EnergyTrackingPage.jsx';
 import ComparisonPage from './pages/ComparisonPage.jsx';
+import ProcessPage from './pages/ProcessPage.jsx';
 
 const TABS = [
   { id: 'dataset',   label: 'Dataset' },
@@ -15,6 +16,7 @@ const TABS = [
   { id: 'results',   label: 'Model Results' },
   { id: 'energy',    label: 'Energy Tracking' },
   { id: 'compare',   label: 'Comparison' },
+  { id: 'process',   label: 'Process' },
 ];
 
 export default function App() {
@@ -75,6 +77,7 @@ export default function App() {
         {tab === 'results' && <ModelResultsPage />}
         {tab === 'energy'  && <EnergyTrackingPage />}
         {tab === 'compare' && <ComparisonPage />}
+        {tab === 'process' && <ProcessPage />}
       </main>
 
       <footer className="text-center text-xs text-gray-400 pb-6">

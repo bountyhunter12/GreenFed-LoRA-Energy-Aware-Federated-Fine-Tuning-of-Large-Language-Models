@@ -7,7 +7,6 @@ export const CATEGORIES = [
     color: 'border-red-500',
     bg: 'bg-red-50',
     text: 'text-red-600',
-    emoji: '🔴',
     example: 'My card was charged twice for the same purchase',
     short: 'Credit Card',
   },
@@ -16,7 +15,6 @@ export const CATEGORIES = [
     color: 'border-blue-500',
     bg: 'bg-blue-50',
     text: 'text-blue-600',
-    emoji: '🔵',
     example: 'My mortgage payment wasn’t applied correctly',
     short: 'Mortgage',
   },
@@ -25,7 +23,6 @@ export const CATEGORIES = [
     color: 'border-orange-500',
     bg: 'bg-orange-50',
     text: 'text-orange-600',
-    emoji: '🟠',
     example: 'A collector called me 5 times in one day',
     short: 'Debt Coll.',
   },
@@ -34,7 +31,6 @@ export const CATEGORIES = [
     color: 'border-green-500',
     bg: 'bg-green-50',
     text: 'text-green-600',
-    emoji: '🟢',
     example: 'My account was frozen without explanation',
     short: 'Bank Acct.',
   },
@@ -43,7 +39,6 @@ export const CATEGORIES = [
     color: 'border-purple-500',
     bg: 'bg-purple-50',
     text: 'text-purple-600',
-    emoji: '🟣',
     example: 'There’s an account on my report I never opened',
     short: 'Credit Rep.',
   },
@@ -52,7 +47,6 @@ export const CATEGORIES = [
     color: 'border-yellow-500',
     bg: 'bg-yellow-50',
     text: 'text-yellow-600',
-    emoji: '🟡',
     example: 'My wire transfer never arrived',
     short: 'Transfer',
   },
@@ -239,6 +233,107 @@ export const MODELS = {
         energy: [0.19000, 0.18990, 0.18980, 0.18990, 0.18990],
       },
       convergence: [0.6265, 0.6582, 0.6852, 0.7050, 0.7226],
+    },
+  },
+  // New models added in v2. Per-round arrays for rounds.co2 (cumulative),
+  // rounds.energy (per-round), and convergence are linearly interpolated from
+  // the final value because only Round-5 totals are reported in the source log.
+  'Llama-3.2-3B': {
+    label: 'qlora_4bit',
+    comm: 459.38,
+    flora: {
+      rouge: 0.4159, bert: 0.8668, comp: 0.6413,
+      co2: 455.54, energy: 2.17714, comm: 459.38,
+      rounds: {
+        co2:    [91.11, 182.22, 273.32, 364.43, 455.54],
+        energy: [0.43543, 0.43543, 0.43543, 0.43543, 0.43542],
+      },
+      convergence: [0.5521, 0.5744, 0.5967, 0.6190, 0.6413],
+    },
+    fedavg: {
+      rouge: 0.3941, bert: 0.8592, comp: 0.6267,
+      co2: 523.30, energy: 2.50135, comm: 459.38,
+      rounds: {
+        co2:    [104.66, 209.32, 313.98, 418.64, 523.30],
+        energy: [0.50027, 0.50027, 0.50027, 0.50027, 0.50027],
+      },
+      convergence: [0.5375, 0.5598, 0.5821, 0.6044, 0.6267],
+    },
+    all: {
+      rouge: 0.3823, bert: 0.8504, comp: 0.6163,
+      co2: 736.63, energy: 2.62239, comm: 459.38,
+      rounds: {
+        co2:    [147.33, 294.65, 441.98, 589.30, 736.63],
+        energy: [0.52448, 0.52448, 0.52448, 0.52448, 0.52447],
+      },
+      convergence: [0.5271, 0.5494, 0.5717, 0.5940, 0.6163],
+    },
+  },
+  'TinyLlama-1.1B': {
+    label: 'high_rank',
+    comm: 472.66,
+    flora: {
+      rouge: 0.4622, bert: 0.8652, comp: 0.6637,
+      co2: 234.83, energy: 1.12230, comm: 472.66,
+      rounds: {
+        co2:    [46.97, 93.93, 140.90, 187.86, 234.83],
+        energy: [0.22446, 0.22446, 0.22446, 0.22446, 0.22446],
+      },
+      convergence: [0.5745, 0.5968, 0.6191, 0.6414, 0.6637],
+    },
+    fedavg: {
+      rouge: 0.4646, bert: 0.8666, comp: 0.6656,
+      co2: 323.54, energy: 1.54691, comm: 472.66,
+      rounds: {
+        co2:    [64.71, 129.42, 194.12, 258.83, 323.54],
+        energy: [0.30938, 0.30938, 0.30938, 0.30938, 0.30939],
+      },
+      convergence: [0.5764, 0.5987, 0.6210, 0.6433, 0.6656],
+    },
+    all: {
+      rouge: 0.4483, bert: 0.8584, comp: 0.6534,
+      co2: 332.27, energy: 1.18299, comm: 472.66,
+      rounds: {
+        co2:    [66.45, 132.91, 199.36, 265.82, 332.27],
+        energy: [0.23660, 0.23660, 0.23660, 0.23660, 0.23659],
+      },
+      convergence: [0.5642, 0.5865, 0.6088, 0.6311, 0.6534],
+    },
+  },
+  // Gemma-2-2B with QLoRA at low rank collapsed during training.
+  // The energy and CO2 numbers are real measurements; quality metrics
+  // dropped to 0.0146 (degenerate output) across all three strategies.
+  'Gemma-2-2B': {
+    label: 'qlora_low_r',
+    comm: 76.17,
+    collapsed: true,
+    collapseNote: 'QLoRA with low rank collapsed during training — output is degenerate (composite 0.0146). Included as a negative result to show that adapter rank is a load-bearing hyperparameter.',
+    flora: {
+      rouge: 0.0146, bert: 0.0146, comp: 0.0146,
+      co2: 891.95, energy: 4.26213, comm: 76.17,
+      rounds: {
+        co2:    [178.39, 356.78, 535.17, 713.56, 891.95],
+        energy: [0.85243, 0.85243, 0.85243, 0.85243, 0.85241],
+      },
+      convergence: [0.0146, 0.0146, 0.0146, 0.0146, 0.0146],
+    },
+    fedavg: {
+      rouge: 0.0146, bert: 0.0146, comp: 0.0146,
+      co2: 891.95, energy: 4.26213, comm: 76.17,
+      rounds: {
+        co2:    [178.39, 356.78, 535.17, 713.56, 891.95],
+        energy: [0.85243, 0.85243, 0.85243, 0.85243, 0.85241],
+      },
+      convergence: [0.0146, 0.0146, 0.0146, 0.0146, 0.0146],
+    },
+    all: {
+      rouge: 0.0146, bert: 0.0146, comp: 0.0146,
+      co2: 891.95, energy: 4.26213, comm: 76.17,
+      rounds: {
+        co2:    [178.39, 356.78, 535.17, 713.56, 891.95],
+        energy: [0.85243, 0.85243, 0.85243, 0.85243, 0.85241],
+      },
+      convergence: [0.0146, 0.0146, 0.0146, 0.0146, 0.0146],
     },
   },
 };
